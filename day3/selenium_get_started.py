@@ -6,7 +6,13 @@ from selenium.webdriver.support.ui import WebDriverWait # 브라우저의 응답
 from selenium.webdriver.support import expected_conditions as EC # html요소의 상태를 체크할 수 있게 하기 위해
 # 이 외에도 필요한 모듈이 있다면 따로 호출해준다.
 import time
-driver = webdriver.Chrome() #크롬 열기
+
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=options) #크롬 열기
 time.sleep(2) #2초 대기
 driver.get('http://capszzang.gq') # 해당 웹사이트로 접속
 
